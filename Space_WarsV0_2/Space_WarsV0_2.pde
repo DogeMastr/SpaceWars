@@ -6,7 +6,7 @@ Player player2;
 
 void setup() {
   noStroke();
-  rectMode(CENTER);  
+  rectMode(CENTER);
   size(800, 800);
 
   keysIn = new ArrayList<Character>();
@@ -25,8 +25,9 @@ void draw() {
   player1.runPlayer();
 
   player2.runPlayer();
-  
+
   fill(0,0,255);
+  strokeWeight(0);
   ellipse(width/2, height/2, 50, 50);
 
   //println();
