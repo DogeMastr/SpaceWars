@@ -11,8 +11,6 @@ class Player {
   int diameter;
   float rotation;
 
-  int fuel;
-
   char up;
   char down;
   char left;
@@ -43,8 +41,6 @@ class Player {
     right = _right;
     pColor = _pColor;
 
-    fuel = 5000;
-
     topSpeed = 6;
     rotation = 0;
     xAcceleration = 0;
@@ -66,7 +62,6 @@ class Player {
 
 
   void drawPlayer() {
-    fill(pColor, fuel/5, 0);
     pushMatrix();
     translate(x, y);
     rotate(-rotation);
