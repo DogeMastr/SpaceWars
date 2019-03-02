@@ -30,7 +30,7 @@ class Player {
   Player() {
   }
 
-  void initPlayer(float _x, float _y, int _diameter, char _up, char _down, char _left, char _right, int _pColor, Player otherPlayer) {
+  void initPlayer(float _x, float _y, int _diameter, char _up, char _down, char _left, char _right, color _pColor, Player otherPlayer) {
     //becasue the player uses other player classes this is run after other classes are delcared
     x = _x;
     y = _y;
@@ -143,7 +143,7 @@ class Player {
     cooldown++;
   }
 
- void beamAdd() {
+  void beamAdd() {
     beamList.add(new Beam());
   }
 
