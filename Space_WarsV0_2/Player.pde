@@ -16,7 +16,7 @@ class Player {
   char left;
   char right;
 
-  int pColor;
+  color pColor;
 
   ArrayList<Beam> beamList;
 
@@ -62,6 +62,7 @@ class Player {
 
 
   void drawPlayer() {
+    fill(pColor);
     pushMatrix();
     translate(x, y);
     rotate(-rotation);
