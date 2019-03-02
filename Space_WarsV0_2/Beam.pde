@@ -30,6 +30,7 @@ class Beam {
   }
 
   void drawBeam() {
+    strokeWeight(0);
     fill(255, 0, 0);
     pushMatrix();
     translate(xBeam, yBeam);

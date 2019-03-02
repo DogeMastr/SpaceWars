@@ -25,6 +25,7 @@ class Player {
   int cooldown = 0;
   int cooldownMax = 30;
 
+  int health = 10;
 
   Player() {
   }
@@ -113,6 +114,20 @@ class Player {
     }
   }
 
+  void hit() {
+    if (health == 0) {
+      //gameover
+    }
+
+    if (health == 5) {
+      health = 0;
+    }
+
+    if (health == 10) {
+      health = 5;
+    }
+  }
+
   //playerBeam stuff
 
   void beamRun() {
@@ -140,6 +155,10 @@ class Player {
     for (int i = beamList.size()-1; i > 0; i--) { //for loop goes down instead of up so it dosnt skip over beams and potentally cause errors
       if (beamList.get(i).collision()) { //checks if it is
         beamList.remove(i);
+
+        //EnemyPlayer is hit
+        enemyPlayer.hit();
+        break;
       }
       if (beamList.get(i).outOfBounds()) { //checks if it is
         beamList.remove(i);
