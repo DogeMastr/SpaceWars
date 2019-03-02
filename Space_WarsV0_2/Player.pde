@@ -69,8 +69,9 @@ class Player {
       if (PastSecond != second()) {
         PastSecond = second();
         fill(255,0,0);
+      } else {
+        fill(pColor);
       }
-      fill(pColor);
     } else {
       fill(pColor);
     }

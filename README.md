@@ -13,4 +13,3 @@ Shoot Beam | s | k |
 Things left to do
 - [ ] GameOver Screen
 - [ ] Reset Game
-- [ ] Fix blinking on low health
