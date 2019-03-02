@@ -16,8 +16,8 @@ void setup() {
   player2 = new Player();
 
   //player init so the beams have an enemy player to tag to
-  player1.initPlayer(50, 50, 30, 'w', 's', 'a', 'd', 0, player2);
-  player2.initPlayer(width - 50, 50, 30, 'i', 'k', 'j', 'l', 255, player1);
+  player1.initPlayer(50, 50, 30, 'w', 's', 'a', 'd', color(0,255,0), player2);
+  player2.initPlayer(width - 50, 50, 30, 'i', 'k', 'j', 'l', color(255,255,0), player1);
 }
 
 void draw() {
