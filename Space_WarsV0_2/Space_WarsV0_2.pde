@@ -26,10 +26,6 @@ void draw() {
 
   player2.runPlayer();
 
-  fill(0,0,255);
-  strokeWeight(0);
-  ellipse(width/2, height/2, 50, 50);
-
   //println();
 }
 
