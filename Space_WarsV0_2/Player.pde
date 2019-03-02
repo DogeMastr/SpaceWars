@@ -27,6 +27,7 @@ class Player {
 
   int health = 10;
 
+  int PastSecond = 0;
   Player() {
   }
 
@@ -63,7 +64,19 @@ class Player {
 
 
   void drawPlayer() {
-    fill(pColor);
+
+    if (health == 0) {
+      if (PastSecond != second()) {
+        PastSecond = second();
+        fill(255,0,0);
+      }
+      fill(pColor);
+    } else {
+      fill(pColor);
+    }
+
+    stroke(88, 255, 226);
+    strokeWeight(health); //looks like a sheild, decreases everytime you get hit
     pushMatrix();
     translate(x, y);
     rotate(-rotation);
