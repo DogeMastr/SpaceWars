@@ -1,6 +1,8 @@
 class Player {
   float x;
   float y;
+  float _x;
+  float _y;
   float topSpeed;
   float xMoveSpeed;
   float yMoveSpeed;
@@ -31,10 +33,12 @@ class Player {
   Player() {
   }
 
-  void initPlayer(float _x, float _y, int _diameter, char _up, char _down, char _left, char _right, color _pColor, Player otherPlayer) {
+  void initPlayer(float $x, float $y, int _diameter, char _up, char _down, char _left, char _right, color _pColor, Player otherPlayer) {
     //becasue the player uses other player classes this is run after other classes are delcared
-    x = _x;
-    y = _y;
+    x = $x;
+    y = $y;
+    _x = $x; //stores the default position for the player
+    _y = $y;
     diameter = _diameter;
 
     up = _up;
