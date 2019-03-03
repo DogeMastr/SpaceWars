@@ -29,7 +29,7 @@ class Player {
 
   int health = 10;
 
-  int PastSecond = 0;
+  int pastSecond = 0;
   Player() {
   }
 
@@ -70,8 +70,8 @@ class Player {
   void drawPlayer() {
 
     if (health == 0) {
-      if (PastSecond != second()) {
-        PastSecond = second();
+      if (pastSecond != second()) {
+        pastSecond = second();
         fill(255,0,0);
       } else {
         fill(pColor);
