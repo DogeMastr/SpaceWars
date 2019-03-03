@@ -154,6 +154,37 @@ class Player {
     score++;
   }
 
+  void reset(){
+    health = 10;
+    rotation = 0;
+    xAcceleration = 0;
+    yAcceleration = 0;
+    x = _x;
+    y = _y;
+    xMoveSpeed = 0;
+    yMoveSpeed = 0;
+    xGravitySpeed = 0;
+    yGravitySpeed = 0;
+  }
+
+  void roundReset(){
+    score = 0;
+    health = 10;
+    rotation = 0;
+    xAcceleration = 0;
+    yAcceleration = 0;
+    x = _x;
+    y = _y;
+    xMoveSpeed = 0;
+    yMoveSpeed = 0;
+    xGravitySpeed = 0;
+    yGravitySpeed = 0;
+
+    for (int i = beamList.size()-1; i > 0; i--) { //for loop goes down instead of up so it dosnt skip over beams and potentally cause errors
+        beamList.remove(i);
+    }
+  }
+
   //playerBeam stuff
 
   void beamRun() {
