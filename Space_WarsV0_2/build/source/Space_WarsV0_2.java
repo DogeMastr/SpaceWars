@@ -20,9 +20,12 @@ Player player1;
 
 Player player2;
 
+boolean gameIsOver = false;
 public void setup() {
   noStroke();
   rectMode(CENTER);
+  textAlign(CENTER,CENTER);
+  textSize(40);
   
 
   keysIn = new ArrayList<Character>();
@@ -38,17 +41,63 @@ public void setup() {
 
 public void draw() {
   background(90, 80);
-  player1.runPlayer();
 
-  player2.runPlayer();
-
-  fill(0,0,255);
-  strokeWeight(0);
-  ellipse(width/2, height/2, 50, 50);
-
+  if(!gameIsOver){
+    player1.runPlayer();
+    player2.runPlayer();
+  } else {
+    gameOver();
+  }
   //println();
 }
 
+public void gameOver(){
+  /*
+  contains the gameover screen
+  allows players to reset the game
+  add to the winning players score
+  */
+  if(gameIsOver){
+    //bars or stars on each side, first to 5 wins
+    if(player1.score == 5  || player2.score == 5){
+      if(player1.score == 5){ //player 1 has won the best of 5
+        text("Green is the winner!",width/2,height/3);
+        text("Press Space to start the next game!",width/2,(height/3)*2);
+        if(keysIn.contains(' ')){
+          roundReset();
+        }
+      }
+      if(player2.score == 5){ //player 2 has won the best of 5
+        text("Yellow is the winner!",width/2,height/3);
+        text("Press Space to start the next game!",width/2,(height/3)*2);
+        if(keysIn.contains(' ')){
+          roundReset();
+        }
+      }
+    } else { //no current winner
+      text(player1.score,width/4,height/2);
+      text(player2.score,(width/4)*3,height/2);
+
+      text("Press Space to start the next round!",width/2,(height/3)*2);
+      if(keysIn.contains(' ')){
+        reset();
+      }
+    }
+  }
+}
+public void reset(){
+  //resets players (& other items to be added?)
+  player1.reset();
+  player2.reset();
+  gameIsOver = false;
+}
+public void roundReset(){
+  //resets game
+  player1.roundReset();
+  player2.roundReset();
+  gameIsOver = false;
+
+}
 public void keyTyped() {
   if (!keysIn.contains(key)) {
     keysIn.add(key);
@@ -151,6 +200,8 @@ class Beam {
 class Player {
   float x;
   float y;
+  float _x;
+  float _y;
   float topSpeed;
   float xMoveSpeed;
   float yMoveSpeed;
@@ -177,14 +228,18 @@ class Player {
 
   int health = 10;
 
-  int PastSecond = 0;
+  int pastSecond = 0;
+
+  int score = 0;
   Player() {
   }
 
-  public void initPlayer(float _x, float _y, int _diameter, char _up, char _down, char _left, char _right, int _pColor, Player otherPlayer) {
+  public void initPlayer(float $x, float $y, int _diameter, char _up, char _down, char _left, char _right, int _pColor, Player otherPlayer) {
     //becasue the player uses other player classes this is run after other classes are delcared
-    x = _x;
-    y = _y;
+    x = $x;
+    y = $y;
+    _x = $x; //stores the default position for the player
+    _y = $y;
     diameter = _diameter;
 
     up = _up;
@@ -216,8 +271,8 @@ class Player {
   public void drawPlayer() {
 
     if (health == 0) {
-      if (PastSecond != second()) {
-        PastSecond = second();
+      if (pastSecond != second()) {
+        pastSecond = second();
         fill(255,0,0);
       } else {
         fill(pColor);
@@ -281,6 +336,8 @@ class Player {
   public void hit() {
     if (health == 0) {
       //gameover
+      gameIsOver = true;
+      enemyPlayer.addScore();
     }
 
     if (health == 5) {
@@ -290,6 +347,38 @@ class Player {
     if (health == 10) {
       health = 5;
     }
+  }
+
+  public void addScore(){
+    //adds score through the enemyPlayer
+    score++;
+  }
+
+  public void reset(){
+    health = 10;
+    rotation = 0;
+    xAcceleration = 0;
+    yAcceleration = 0;
+    x = _x;
+    y = _y;
+    xMoveSpeed = 0;
+    yMoveSpeed = 0;
+    xGravitySpeed = 0;
+    yGravitySpeed = 0;
+  }
+
+  public void roundReset(){
+    score = 0;
+    health = 10;
+    rotation = 0;
+    xAcceleration = 0;
+    yAcceleration = 0;
+    x = _x;
+    y = _y;
+    xMoveSpeed = 0;
+    yMoveSpeed = 0;
+    xGravitySpeed = 0;
+    yGravitySpeed = 0;
   }
 
   //playerBeam stuff

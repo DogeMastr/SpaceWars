@@ -137,6 +137,7 @@ class Player {
   void hit() {
     if (health == 0) {
       //gameover
+      gameIsOver = true;
       enemyPlayer.addScore();
     }
 
