@@ -30,6 +30,8 @@ class Player {
   int health = 10;
 
   int pastSecond = 0;
+
+  int score = 0;
   Player() {
   }
 
@@ -135,6 +137,7 @@ class Player {
   void hit() {
     if (health == 0) {
       //gameover
+      enemyPlayer.addScore();
     }
 
     if (health == 5) {
@@ -144,6 +147,11 @@ class Player {
     if (health == 10) {
       health = 5;
     }
+  }
+
+  void addScore(){
+    //adds score through the enemyPlayer
+    score++;
   }
 
   //playerBeam stuff
