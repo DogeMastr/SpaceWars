@@ -379,6 +379,10 @@ class Player {
     yMoveSpeed = 0;
     xGravitySpeed = 0;
     yGravitySpeed = 0;
+
+    for (int i = beamList.size()-1; i > 0; i--) { //for loop goes down instead of up so it dosnt skip over beams and potentally cause errors
+        beamList.remove(i);
+    }
   }
 
   //playerBeam stuff
