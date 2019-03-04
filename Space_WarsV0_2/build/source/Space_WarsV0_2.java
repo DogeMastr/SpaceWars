@@ -169,7 +169,7 @@ class Beam {
   public boolean collision() {
     //via the process of elimation, if its not outside, its inside
 
-    // If beam is to the left of Player, then there is no collision.  
+    // If beam is to the left of Player, then there is no collision.
     if (xBeam + beamWidth/2 < enemyPlayer.x - enemyPlayer.diameter/2) return false;
 
     // If beam is  to the right of Player, then there is no collision.
@@ -186,9 +186,9 @@ class Beam {
   }
 
   public boolean outOfBounds() {
-   
+
     //checks to see if the beam is out of bounds
-    
+
     if (yBeam < -20)         return true;
     if (yBeam > height + 20) return true;
     if (xBeam < -20)         return true;
@@ -302,10 +302,10 @@ class Player {
 
   public void movePlayer() {
     if (keysIn.contains(left)) {
-      rotation += 0.05f;
+      rotation += 0.1f;
     }
     if (keysIn.contains(right)) {
-      rotation -= 0.05f;
+      rotation -= 0.1f;
     }
 
     //finds what direction to move in depending on what angle you are pointing at
@@ -365,6 +365,10 @@ class Player {
     yMoveSpeed = 0;
     xGravitySpeed = 0;
     yGravitySpeed = 0;
+
+    for (int i = beamList.size()-1; i > 0; i--) { //for loop goes down instead of up so it dosnt skip over beams and potentally cause errors
+        beamList.remove(i);
+    }
   }
 
   public void roundReset(){
