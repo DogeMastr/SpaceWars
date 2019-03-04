@@ -12,4 +12,3 @@ Shoot Beam | s | k |
 
 Things left to do
 - [ ] GameOver Screen
-- [ ] Reset Game
