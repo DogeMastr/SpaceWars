@@ -42,26 +42,34 @@ void gameOver(){
   add to the winning players score
   */
   if(gameIsOver){
-    //bars or stars on each side, first to 5 wins
+    //replace with bars or stars on each side, first to 5 wins
     if(player1.score == 5  || player2.score == 5){
       if(player1.score == 5){ //player 1 has won the best of 5
+        fill(player1.pColor);
         text("Green is the winner!",width/2,height/3);
+
+        fill(0);
         text("Press Space to start the next game!",width/2,(height/3)*2);
         if(keysIn.contains(' ')){
           roundReset();
         }
       }
       if(player2.score == 5){ //player 2 has won the best of 5
+        fill(player2.pColor);
         text("Yellow is the winner!",width/2,height/3);
+        fill(0);
         text("Press Space to start the next game!",width/2,(height/3)*2);
         if(keysIn.contains(' ')){
           roundReset();
         }
       }
     } else { //no current winner
+      fill(player1.pColor);
       text(player1.score,width/4,height/2);
+      fill(player2.pColor);
       text(player2.score,(width/4)*3,height/2);
 
+      fill(0);
       text("Press Space to start the next round!",width/2,(height/3)*2);
       if(keysIn.contains(' ')){
         reset();
@@ -70,13 +78,13 @@ void gameOver(){
   }
 }
 void reset(){
-  //resets players (& other items to be added?)
+  //resets full game & sets all scores to 0
   player1.reset();
   player2.reset();
   gameIsOver = false;
 }
 void roundReset(){
-  //resets game
+  //resets the round, keeps the scores the same
   player1.roundReset();
   player2.roundReset();
   gameIsOver = false;
