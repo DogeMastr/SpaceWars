@@ -68,7 +68,6 @@ class Player {
     beamRun();
   }
 
-
   void drawPlayer() {
 
     if (health == 0) {
