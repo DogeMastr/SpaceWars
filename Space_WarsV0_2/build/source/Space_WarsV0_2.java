@@ -21,6 +21,7 @@ Player player1;
 Player player2;
 
 boolean gameIsOver = false;
+
 public void setup() {
   noStroke();
   rectMode(CENTER);
@@ -93,24 +94,27 @@ public void gameOver(){
     }
   }
 }
+
 public void reset(){
   //resets full game & sets all scores to 0
   player1.reset();
   player2.reset();
   gameIsOver = false;
 }
+
 public void roundReset(){
   //resets the round, keeps the scores the same
   player1.roundReset();
   player2.roundReset();
   gameIsOver = false;
-
 }
+
 public void keyTyped() {
   if (!keysIn.contains(key)) {
     keysIn.add(key);
   }
 }
+
 public void keyReleased() {
   if (keysIn.contains(key)) {
     keysIn.remove(new Character(key));
@@ -274,7 +278,6 @@ class Player {
 
     beamRun();
   }
-
 
   public void drawPlayer() {
 
