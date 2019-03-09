@@ -11,6 +11,5 @@ Rotate Right | d | l |
 Shoot Beam | s | k |
 
 Things left to do
-- [ ] GameOver Screen
 - [ ] Assets?
 - [ ] Make the shield look better
