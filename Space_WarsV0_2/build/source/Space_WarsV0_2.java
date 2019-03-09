@@ -27,6 +27,7 @@ public void setup() {
   rectMode(CENTER);
   textAlign(CENTER,CENTER);
   textSize(40);
+  //size(800, 800);
   
 
   keysIn = new ArrayList<Character>();
@@ -438,7 +439,7 @@ class Player {
     }
   }
 }
-  public void settings() {  size(800, 800); }
+  public void settings() {  fullScreen(); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Space_WarsV0_2" };
     if (passedArgs != null) {
