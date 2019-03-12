@@ -314,10 +314,10 @@ class Player {
 
   public void movePlayer() {
     if (keysIn.contains(left)) {
-      rotation += 0.1f;
+      rotation += 0.13f;
     }
     if (keysIn.contains(right)) {
-      rotation -= 0.1f;
+      rotation -= 0.13f;
     }
 
     //finds what direction to move in depending on what angle you are pointing at
