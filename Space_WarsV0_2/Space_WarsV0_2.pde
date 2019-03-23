@@ -11,8 +11,8 @@ void setup() {
   rectMode(CENTER);
   textAlign(CENTER,CENTER);
   textSize(40);
-  //size(800, 800);
-  fullScreen();
+  size(800, 800);
+  //fullScreen();
 
   keysIn = new ArrayList<Character>();
 
