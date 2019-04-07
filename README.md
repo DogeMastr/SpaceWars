@@ -10,6 +10,8 @@ Rotate Left | a | j |
 Rotate Right | d | l |
 Shoot Beam | s | k |
 
+To install look in the executables folder & download boi
+
 Things left to do
 - [ ] Assets?
 - [ ] Make the shield look better
