@@ -10,7 +10,7 @@ Rotate Left | a | j |
 Rotate Right | d | l |
 Shoot Beam | s | k |
 
-To install look in the executables folder & download boi
+To install look in the executables folder & download
 
 Things left to do
 - [ ] Assets?
