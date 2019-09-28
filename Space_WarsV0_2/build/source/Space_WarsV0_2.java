@@ -144,6 +144,8 @@ class Beam {
     friendlyPlayer = _player;
     enemyPlayer = _enemy;
     findRotation();
+
+		//ahha
   }
 
   public void runBeam() {

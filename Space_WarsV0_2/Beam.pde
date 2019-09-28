@@ -21,6 +21,8 @@ class Beam {
     friendlyPlayer = _player;
     enemyPlayer = _enemy;
     findRotation();
+
+		//ahha
   }
 
   void runBeam() {

@@ -85,8 +85,8 @@ class Player {
     strokeWeight(health); //looks like a sheild, decreases everytime you get hit
     pushMatrix();
     translate(x, y);
-		rotate(-rotation);
-		rect(0, 0, diameter, diameter, 0, 0, 70, 70);
+    rotate(-rotation);
+    rect(0, 0, diameter, diameter, 0, 0, 70, 70);
     popMatrix();
   }
 
